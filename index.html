@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STIE Eka Prasetya | Kampus SPA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      * Animasi smooth masuk ke layar */ #toast {
+        transform: translate(-50%, -20px);
+      }
+      #toast.opacity-100 {
+        transform: translate(-50%, 0);
+      }
+      [data-animate] {
+        transition: all 0.8s ease-out;
+      }
+      /* Card Partner */
+      .partner-card {
+        background: linear-gradient(145deg, #1d4ed8, #9333ea);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        min-width: 160px;
+        min-height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: all 0.4s ease;
+      }
+      .partner-card:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+      }
+      .partner-card img {
+        width: 80px;
+        height: auto;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+        opacity: 0.9;
+        transition: opacity 0.3s;
+      }
+      .partner-card img:hover {
+        opacity: 1;
+      }
+
+      /* Animasi scroll horizontal */
+      @keyframes scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .animate-scroll {
+        display: inline-flex;
+        animation: scroll 30s linear infinite;
+      }
+
+      /* transisi halus */
+      #hero-text,
+      #hero-image {
+        transition: all 0.9s ease-out;
+      }
+
+      /* efek gambar mengambang */
+      .floating {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a href="#home" class="flex items-center space-x-2">
+          <img
+            src="assets/Logo-STIE-Eka_Prasetya.png"
+            alt="Logo STIE Eka Prasetya"
+            class="w-10 h-10 object-contain"
+          />
+          <span class="font-bold text-lg text-blue-900 tracking-wide"
+            >STIE Eka Prasetya</span
+          >
+        </a>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="#home"
+            class="text-gray-700 hover:text-blue-700 font-medium transition hover:underline"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="text-gray-700 hover:text-blue-700 font-medium transition hover:underline"
+            >About Campus</a
+          >
+          <a
+            href="#why"
+            class="text-gray-700 hover:text-blue-700 font-medium transition hover:underline"
+            >Why Me</a
+          >
+          <a
+            href="#partner"
+            class="text-gray-700 hover:text-blue-700 font-medium transition hover:underline"
+            >Partner</a
+          >
+        </nav>
+
+        <!-- Mobile Button -->
+        <button
+          id="menu-btn"
+          class="block md:hidden text-blue-900 focus:outline-none"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-7 h-7"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <nav
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-gray-200"
+      >
+        <a
+          href="#home"
+          class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-700"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-700"
+          >About Campus</a
+        >
+        <a
+          href="#why"
+          class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-700"
+          >Why Me</a
+        >
+        <a
+          href="#partner"
+          class="block py-3 px-6 text-gray-700 hover:bg-blue-50 hover:text-blue-700"
+          >Partner</a
+        >
+      </nav>
+    </header>
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="relative bg-blue-900 text-white overflow-hidden">
+      <!-- Background image overlay -->
+      <div
+        class="absolute inset-0 bg-[url('assets/campus-bg.webp')] bg-cover bg-center opacity-20"
+      ></div>
+
+      <!-- Hero Content -->
+      <div
+        class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-36 flex flex-col md:flex-row items-center"
+      >
+        <!-- Left: Text -->
+        <div
+          class="flex-1 text-center md:text-left opacity-0 translate-x-[-50px]"
+          id="hero-text"
+        >
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4"
+          >
+            Membangun Generasi Ekonomi yang<br />
+            <span class="text-yellow-400">Unggul dan Berintegritas</span>
+          </h1>
+          <p class="text-lg text-blue-100 mb-8 max-w-xl">
+            STIE Eka Prasetya berkomitmen mencetak lulusan berdaya saing global
+            melalui pendidikan berkualitas, profesionalisme, dan semangat
+            entrepreneurship.
+          </p>
+          <div class="flex justify-center md:justify-start gap-4">
+            <a
+              href="#about"
+              class="bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition"
+            >
+              Lihat Program Studi
+            </a>
+            <a
+              href="#contact"
+              class="border border-yellow-400 text-yellow-400 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 hover:text-blue-900 transition"
+            >
+              Hubungi Kami
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Illustration / Gambar -->
+        <div
+          class="flex-1 mt-10 md:mt-0 flex justify-center md:justify-end opacity-0 translate-x-[50px]"
+          id="hero-image"
+        >
+          <img
+            src="assets/hero-campus.webp"
+            alt="Mahasiswa STIE Eka Prasetya"
+            class="w-72 h-100 md:w-[400px] lg:w-[480px] drop-shadow-lg floating"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT SECTION (Visi, Misi, Komitmen) ===== -->
+    <section id="about" class="bg-gray-50 py-20 overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <!-- Judul Utama -->
+        <h2 class="text-3xl font-bold text-blue-900 mb-12" data-animate>
+          Tentang Kampus
+        </h2>
+
+        <!-- ========== BAGIAN 1: VISI, MISI, KOMITMEN ========== -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <!-- Visi -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-md transform transition duration-500 hover:scale-105 hover:shadow-2xl opacity-0 translate-y-8"
+            data-animate
+            style="transition-delay: 0.1s"
+          >
+            <div class="flex justify-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-7 h-7 text-blue-800"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 12c2.485 0 4.5-2.015 4.5-4.5S14.485 3 12 3 7.5 5.015 7.5 7.5 9.515 12 12 12zm0 0v9"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-blue-900 mb-3">Visi Kami</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Menjadi Perguruan Tinggi terkemuka dalam pengembangan sumber daya
+              manusia yang profesional, berjiwa entrepreneurship, serta berdaya
+              saing internasional pada tahun 2042.
+            </p>
+          </div>
+
+          <!-- Misi -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-md transform transition duration-500 hover:scale-105 hover:shadow-2xl opacity-0 translate-y-8"
+            data-animate
+            style="transition-delay: 0.2s"
+          >
+            <div class="flex justify-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-7 h-7 text-blue-800"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4.5v15m7.5-7.5h-15"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-blue-900 mb-3">Misi Kami</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Menyelenggarakan pendidikan dan pengajaran dengan menghasilkan
+              lulusan yang profesional dan berjiwa kewirausahaan sesuai dengan
+              bidang ilmu yang ditekuni.
+            </p>
+          </div>
+
+          <!-- Komitmen -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-md transform transition duration-500 hover:scale-105 hover:shadow-2xl opacity-0 translate-y-8"
+            data-animate
+            style="transition-delay: 0.3s"
+          >
+            <div class="flex justify-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-7 h-7 text-blue-800"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 21c-4.418 0-8-3.582-8-8a8 8 0 0116 0c0 4.418-3.582 8-8 8z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-blue-900 mb-3">
+              Komitmen Kami
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              Melaksanakan penelitian yang bermanfaat, pengabdian kepada
+              masyarakat, serta tata kelola akademik yang akuntabel dan berdaya
+              saing global.
+            </p>
+          </div>
+        </div>
+
+        <!-- ========== BAGIAN 2: PROGRAM STUDI UNGGULAN ========== -->
+        <h3 class="text-2xl font-bold text-blue-900 mb-10" data-animate>
+          Program Studi Unggulan
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Program Studi: Manajemen -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-md transform transition duration-500 hover:scale-105 hover:shadow-xl opacity-0 translate-y-8"
+            data-animate
+            style="transition-delay: 0.4s"
+          >
+            <div class="flex justify-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-7 h-7 text-blue-800"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h4 class="text-xl font-semibold text-blue-900 mb-3">
+              S1 Manajemen
+            </h4>
+            <p class="text-gray-700 leading-relaxed">
+              Program studi yang mempersiapkan mahasiswa menjadi pemimpin bisnis
+              profesional dan berjiwa entrepreneurship, dengan fokus pada
+              <strong>Strategic Management</strong> dan
+              <strong>Business Leadership</strong>.
+            </p>
+          </div>
+
+          <!-- Program Studi: Akuntansi -->
+          <div
+            class="bg-white p-8 rounded-xl shadow-md transform transition duration-500 hover:scale-105 hover:shadow-xl opacity-0 translate-y-8"
+            data-animate
+            style="transition-delay: 0.5s"
+          >
+            <div class="flex justify-center mb-4">
+              <div class="bg-yellow-100 p-3 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-7 h-7 text-yellow-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 8v8m-4-4h8"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h4 class="text-xl font-semibold text-blue-900 mb-3">
+              S1 Akuntansi
+            </h4>
+            <p class="text-gray-700 leading-relaxed">
+              Program yang menghasilkan akuntan profesional dengan kemampuan
+              analisis keuangan dan audit yang handal, berfokus pada
+              <strong>Financial Analysis</strong> dan <strong>Auditing</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY ME SECTION ===== -->
+    <section id="why" class="bg-white py-20 overflow-hidden">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-blue-900 mb-6" data-animate>
+          Kenapa Memilih Kami
+        </h2>
+        <p class="text-gray-600 mb-12 max-w-2xl mx-auto" data-animate>
+          STIE Eka Prasetya memberikan pengalaman belajar yang unggul,
+          berorientasi pada dunia kerja, dan berwawasan global.
+        </p>
+
+        <!-- Grid Keunggulan -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Alumni Sukses -->
+          <div
+            class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transform transition duration-500 hover:scale-105 opacity-0 translate-y-8"
+            data-animate
+          >
+            <div class="flex justify-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8 text-blue-800"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-blue-900 mb-2">
+              25.000+ Alumni Sukses
+            </h3>
+            <p class="text-gray-600">
+              Lulusan kami tersebar di berbagai perusahaan terkemuka di dalam
+              dan luar negeri.
+            </p>
+          </div>
+
+          <!-- Fasilitas Modern -->
+          <div
+            class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transform transition duration-500 hover:scale-105 opacity-0 translate-y-8"
+            data-animate
+          >
+            <div class="flex justify-center mb-4">
+              <div class="bg-yellow-100 p-3 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8 text-yellow-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.75 17L4.5 3.75m15 0L14.25 17m-9.75 0h15"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-blue-900 mb-2">
+              Fasilitas Modern
+            </h3>
+            <p class="text-gray-600">
+              Kampus dilengkapi teknologi pembelajaran terkini dan lingkungan
+              belajar yang nyaman.
+            </p>
+          </div>
+
+          <!-- Kemitraan Global -->
+          <div
+            class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transform transition duration-500 hover:scale-105 opacity-0 translate-y-8"
+            data-animate
+          >
+            <div class="flex justify-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8 text-blue-800"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 3C7.031 3 3 7.031 3 12s4.031 9 9 9 9-4.031 9-9-4.031-9-9-9zm0 0v18"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-blue-900 mb-2">
+              Kemitraan Global
+            </h3>
+            <p class="text-gray-600">
+              Bekerjasama dengan universitas dan perusahaan internasional untuk
+              meningkatkan kualitas pendidikan.
+            </p>
+          </div>
+
+          <!-- Dosen Profesional -->
+          <div
+            class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transform transition duration-500 hover:scale-105 opacity-0 translate-y-8"
+            data-animate
+          >
+            <div class="flex justify-center mb-4">
+              <div class="bg-yellow-100 p-3 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8 text-yellow-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 11c0 1.657-1.343 3-3 3S6 12.657 6 11s1.343-3 3-3 3 1.343 3 3zm6 0c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zM6 20a6 6 0 0112 0"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-blue-900 mb-2">
+              Dosen Profesional
+            </h3>
+            <p class="text-gray-600">
+              Dibimbing oleh dosen berpengalaman dengan latar belakang akademik
+              dan praktisi industri.
+            </p>
+          </div>
+
+          <!-- Kewirausahaan -->
+          <div
+            class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transform transition duration-500 hover:scale-105 opacity-0 translate-y-8"
+            data-animate
+          >
+            <div class="flex justify-center mb-4">
+              <div class="bg-blue-100 p-3 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8 text-blue-800"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12h6m2 8a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-blue-900 mb-2">
+              Kewirausahaan & Karier
+            </h3>
+            <p class="text-gray-600">
+              Mahasiswa dibimbing untuk membangun ide bisnis, mengembangkan
+              karier, dan menjadi wirausahawan muda.
+            </p>
+          </div>
+
+          <!-- Program Studi Unggulan -->
+          <div
+            class="bg-gray-50 rounded-xl p-8 shadow-md hover:shadow-lg transform transition duration-500 hover:scale-105 opacity-0 translate-y-8"
+            data-animate
+          >
+            <div class="flex justify-center mb-4">
+              <div class="bg-yellow-100 p-3 rounded-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-8 h-8 text-yellow-600"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-blue-900 mb-2">
+              Program Studi Unggulan
+            </h3>
+            <p class="text-gray-600">
+              Pilihan program studi manajemen dan akuntansi yang disusun sesuai
+              kebutuhan industri modern.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PARTNER KERJASAMA ===== -->
+    <section
+      id="partner"
+      class="relative bg-gradient-to-r from-blue-900 to-purple-900 text-white py-20 overflow-hidden"
+    >
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-4" data-animate>Partner Kerjasama</h2>
+        <p class="text-blue-100 mb-12 max-w-2xl mx-auto" data-animate>
+          Kami bangga bekerja sama dengan perusahaan-perusahaan terkemuka untuk
+          memberikan peluang terbaik bagi mahasiswa STIE Eka Prasetya.
+        </p>
+
+        <!-- Wrapper Carousel -->
+        <div class="relative w-full overflow-hidden">
+          <!-- Track Logo -->
+          <div
+            id="partner-track"
+            class="flex gap-8 animate-scroll whitespace-nowrap"
+          >
+            <!-- Logo Item -->
+            <div class="partner-card">
+              <img
+                src=""
+                alt="Unilever Indonesia"
+                onerror="this.parentElement.innerHTML='<p>Unilever Indonesia</p>'"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src=""
+                alt="Astra International"
+                onerror="this.parentElement.innerHTML='<p>Astra International</p>'"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src=""
+                alt="Gojek Indonesia"
+                onerror="this.parentElement.innerHTML='<p>Gojek Indonesia</p>'"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src=""
+                alt="Shopee Indonesia"
+                onerror="this.parentElement.innerHTML='<p>Shopee Indonesia</p>'"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src=""
+                alt="Tokopedia"
+                onerror="this.parentElement.innerHTML='<p>Tokopedia</p>'"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src=""
+                alt="Pertamina"
+                onerror="this.parentElement.innerHTML='<p>Pertamina</p>'"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src=""
+                alt="BCA"
+                onerror="this.parentElement.innerHTML='<p>BCA</p>'"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src=""
+                alt="Traveloka"
+                onerror="this.parentElement.innerHTML='<p>Traveloka</p>'"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src=""
+                alt="OVO"
+                onerror="this.parentElement.innerHTML='<p>OVO</p>'"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src=""
+                alt="Ruangguru"
+                onerror="this.parentElement.innerHTML='<p>Ruangguru</p>'"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src=""
+                alt="Halodoc"
+                onerror="this.parentElement.innerHTML='<p>Halodoc</p>'"
+              />
+            </div>
+            <div class="partner-card">
+              <img
+                src=""
+                alt="Tiket.com"
+                onerror="this.parentElement.innerHTML='<p>Tiket.com</p>'"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== CONTACT & FOOTER SECTION ===== -->
+    <footer
+      id="contact"
+      class="relative bg-gradient-to-r from-blue-900 to-purple-900 text-white pt-20 pb-10 overflow-hidden"
+    >
+      <div class="max-w-6xl mx-auto px-6 text-center md:text-left">
+        <!-- Judul -->
+        <h2 class="text-3xl font-bold mb-8 text-center" data-animate>
+          Hubungi Kami
+        </h2>
+        <p
+          class="text-blue-100 mb-12 text-center max-w-2xl mx-auto"
+          data-animate
+        >
+          Hubungi kami untuk informasi lebih lanjut mengenai pendaftaran, kerja
+          sama, atau program akademik di STIE Eka Prasetya.
+        </p>
+
+        <!-- Grid Utama -->
+        <div class="grid md:grid-cols-3 gap-10 mb-12">
+          <!-- Kontak Kampus -->
+          <div class="opacity-0 translate-y-8" data-animate>
+            <h3 class="text-xl font-semibold mb-4">Kontak Kampus</h3>
+            <ul class="space-y-3 text-blue-100">
+              <li class="flex items-start gap-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-yellow-400 mt-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M16 2H8a2 2 0 00-2 2v16l6-3 6 3V4a2 2 0 00-2-2z"
+                  />
+                </svg>
+                <span
+                  >STIE Eka Prasetya<br />Jl. Merapi No. 8 20211 Medan, Sumatera
+                  Utara</span
+                >
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-yellow-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-9 13V10"
+                  />
+                </svg>
+                <span>info@eka-prasetya.ac.id</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5 text-yellow-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 10h2l1 2h11l1-2h2m-7 7a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                </svg>
+                <span>Telp: (061) 1234-5678</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Formulir Kontak -->
+          <div class="opacity-0 translate-y-8" data-animate>
+            <h3 class="text-xl font-semibold mb-4">Kirim Pesan</h3>
+            <form
+              id="waForm"
+              class="space-y-4"
+              onsubmit="sendToWhatsApp(event)"
+            >
+              <input
+                type="text"
+                id="name"
+                placeholder="Nama Anda"
+                class="w-full p-3 rounded-lg bg-blue-800 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                required
+              />
+              <input
+                type="email"
+                id="email"
+                placeholder="Email Anda"
+                class="w-full p-3 rounded-lg bg-blue-800 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                required
+              />
+              <textarea
+                id="message"
+                placeholder="Pesan Anda"
+                rows="3"
+                class="w-full p-3 rounded-lg bg-blue-800 text-white placeholder-blue-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                required
+              ></textarea>
+              <button
+                type="submit"
+                class="w-full bg-yellow-400 text-blue-900 font-semibold py-3 rounded-lg hover:bg-yellow-500 transition"
+              >
+                Kirim Pesan
+              </button>
+            </form>
+          </div>
+
+          <!-- Media Sosial -->
+          <div class="opacity-0 translate-y-8" data-animate>
+            <h3 class="text-xl font-semibold mb-4">Ikuti Kami</h3>
+            <p class="text-blue-100 mb-6">
+              Tetap terhubung dengan kami melalui media sosial resmi kampus.
+            </p>
+            <div class="flex justify-center md:justify-start gap-4">
+              <!-- Facebook -->
+              <a
+                href="#"
+                class="bg-blue-800 p-3 rounded-full hover:bg-yellow-400 hover:text-blue-900 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M22 12.07C22 6.49 17.52 2 12 2S2 6.49 2 12.07C2 17.1 5.66 21.18 10.44 22v-7.03h-2.7v-2.9h2.7V9.41c0-2.68 1.6-4.17 4.05-4.17 1.17 0 2.4.21 2.4.21v2.64h-1.35c-1.33 0-1.74.83-1.74 1.68v2.01h2.96l-.47 2.9h-2.49V22C18.34 21.18 22 17.1 22 12.07z"
+                  />
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a
+                href="#"
+                class="bg-blue-800 p-3 rounded-full hover:bg-yellow-400 hover:text-blue-900 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm4.25 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-.75a1 1 0 100 2 1 1 0 000-2z"
+                  />
+                </svg>
+              </a>
+              <!-- YouTube -->
+              <a
+                href="#"
+                class="bg-blue-800 p-3 rounded-full hover:bg-yellow-400 hover:text-blue-900 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M10 15l5.19-3L10 9v6zm12-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </a>
+              <!-- LinkedIn -->
+              <a
+                href="#"
+                class="bg-blue-800 p-3 rounded-full hover:bg-yellow-400 hover:text-blue-900 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M19 0h-14a5 5 0 00-5 5v14a5 5 0 005 5h14a5 5 0 005-5V5a5 5 0 00-5-5zM7 19H4V9h3v10zM5.5 7.6a1.8 1.8 0 110-3.6 1.8 1.8 0 010 3.6zM20 19h-3v-5.4c0-1.3-.4-2.1-1.6-2.1-.9 0-1.5.6-1.7 1.2-.1.2-.1.5-.1.7V19h-3s.1-8.2 0-9h3v1.3c.4-.6 1.1-1.4 2.6-1.4 1.9 0 3.3 1.2 3.3 3.9V19z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Garis pemisah -->
+        <div class="border-t border-blue-700 my-8"></div>
+
+        <!-- Footer bawah -->
+        <div class="text-center text-blue-200 text-sm">
+          © 2025 STIE Eka Prasetya. All Rights Reserved. | Designed by
+          <span class="text-yellow-400 font-semibold">Ari Ganda Pakpahan</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Toggle Mobile Menu
+      const btn = document.getElementById("menu-btn");
+      const menu = document.getElementById("mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
+      // Tutup menu saat link diklik
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => menu.classList.add("hidden"));
+      });
+      // Smooth Scroll untuk navigasi
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+      // Animasi Fade-in
+      document.addEventListener("DOMContentLoaded", () => {
+        const heroText = document.getElementById("hero-text");
+        const heroImage = document.getElementById("hero-image");
+
+        // Delay animasi teks dan gambar
+        setTimeout(() => {
+          heroText.classList.add("opacity-100", "translate-x-0");
+          heroText.classList.remove("opacity-0", "translate-x-[-50px]");
+        }, 300);
+
+        setTimeout(() => {
+          heroImage.classList.add("opacity-100", "translate-x-0");
+          heroImage.classList.remove("opacity-0", "translate-x-[50px]");
+        }, 600);
+      });
+      const animatedElements = document.querySelectorAll("[data-animate]");
+
+      function animateOnScroll() {
+        const triggerPoint = window.innerHeight * 1;
+        animatedElements.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < triggerPoint) {
+            el.classList.add("opacity-100", "translate-y-0");
+            el.classList.remove("opacity-0", "translate-y-8");
+          }
+        });
+      }
+      const track = document.getElementById("partner-track");
+      track.innerHTML += track.innerHTML; // duplikasi konten agar looping tanpa jeda
+
+      window.addEventListener("scroll", animateOnScroll);
+      window.addEventListener("load", animateOnScroll);
+
+      const waNumber = "6282165067574";
+
+      function sendToWhatsApp(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+          alert("Mohon isi semua kolom sebelum mengirim pesan.");
+          return;
+        }
+
+        // Format pesan WhatsApp
+        const text = `Halo STIE Eka Prasetya 👋%0A
+    Nama: ${name}%0A
+    Email: ${email}%0A
+    Pesan: ${message}%0A
+    --------------------%0A
+    Dikirim melalui Website Resmi STIE Eka Prasetya`;
+
+        // Buka WhatsApp (otomatis arahkan ke WA Web atau App)
+        const waURL = `https://wa.me/${waNumber}?text=${text}`;
+        // Tampilkan toast success
+        showToast("✅ Pesan Anda siap dikirim, Terima Kasih Sudah Berkunjung!");
+
+        // Animasi kecil sebelum buka WA
+        setTimeout(() => {
+          window.open(waURL, "_blank");
+        }, 1200);
+      }
+
+      // === TOAST SYSTEM ===
+      function showToast(message) {
+        // Cek apakah toast sudah ada, hapus dulu biar tidak dobel
+        const existing = document.querySelector("#toast");
+        if (existing) existing.remove();
+
+        // Buat elemen toast baru
+        const toast = document.createElement("div");
+        toast.id = "toast";
+        toast.textContent = message;
+        toast.className =
+          "fixed top-5 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-blue-900 font-semibold px-6 py-3 rounded-lg shadow-lg opacity-0 transition-all duration-500 z-50";
+
+        document.body.appendChild(toast);
+
+        // Efek fade in
+        setTimeout(() => {
+          toast.classList.add("opacity-100", "translate-y-2");
+        }, 100);
+
+        // Hilangkan setelah 3 detik
+        setTimeout(() => {
+          toast.classList.remove("opacity-100", "translate-y-2");
+          setTimeout(() => toast.remove(), 500);
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>
