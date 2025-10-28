@@ -1023,7 +1023,12 @@
         showToast("✅ Pesan Anda siap dikirim, Terima Kasih Sudah Berkunjung!");
 
         // Reset form input setelah pengiriman
-        document.getElementById("waForm").reset();
+        const form = document.getElementById("waForm");
+        form.classList.add("opacity-50");
+        setTimeout(() => {
+          form.reset();
+          form.classList.remove("opacity-50");
+        }, 400);
 
         // Animasi kecil sebelum buka WA
         setTimeout(() => {
