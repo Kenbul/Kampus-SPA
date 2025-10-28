@@ -1022,6 +1022,9 @@
         // Tampilkan toast success
         showToast("✅ Pesan Anda siap dikirim, Terima Kasih Sudah Berkunjung!");
 
+        // Reset form input setelah pengiriman
+        document.getElementById("waForm").reset();
+
         // Animasi kecil sebelum buka WA
         setTimeout(() => {
           window.open(waURL, "_blank");
